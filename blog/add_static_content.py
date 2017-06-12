@@ -6,7 +6,7 @@ from builtins import open
 import re
 
 
-home_page = "https://nipunbatra.github.io/blog/"
+home_page = "https://tgjeon.github.io/blog/"
 social = {'FB':"https://facebook.com/sharer/sharer.php?u=%s"}
 
 def convert(notebook_file):
@@ -48,9 +48,9 @@ def convert(notebook_file):
 	soup = BeautifulSoup(body, 'html.parser')
 	try:
 		title = soup.find_all('h1')[0].contents[0]
-		if title is None: title = "Nipun Batra"
+		if title is None: title = "Taegyun Jeon"
 	except:
-		title="Nipun Batra"
+		title="Taegyun Jeon"
 		
 
 
@@ -116,7 +116,6 @@ def convert(notebook_file):
 	body = body.replace("#notebook{font-size:14px;line-height:20px;", "#notebook{font-size:20px;line-height:29px;")
 	body = body.replace("div.text_cell_render{outline:0;resize:none;width:inherit;border-style:none;padding:.5em .5em .5em .4em;color:#000;",
 	                    "div.text_cell_render{outline:0;resize:none;width:inherit;border-style:none;padding:.5em .5em .5em .4em;color:#777;")
-
 
 
 

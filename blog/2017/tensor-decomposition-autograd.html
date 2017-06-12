@@ -48,23 +48,22 @@
                 <li><a href="../../index.html">Home</a></li>
                 <li><a href="../../publications.html">Publications</a></li>
                 <li><a href="../index.html">Blog</a></li>
-                <li><a href="http://www.cs.virginia.edu/~nb2cz/files/cv.pdf">CV</a></li>
+                <li><a href="../../files/cv.pdf">CV</a></li>
             </ul>
         </div>
     </div>
 </nav>
+
 			    <div class="container" margin="5%">
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Tensor-decomposition-using-Autograd">Tensor decomposition using Autograd<a class="anchor-link" href="#Tensor-decomposition-using-Autograd">&#182;</a></h1>
+<h1 id="Tensor-decomposition-using-Autograd">Tensor decomposition using Autograd<a class="anchor-link" href="#Tensor-decomposition-using-Autograd">&#194;&#182;</a></h1>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -73,12 +72,11 @@
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Imports">Imports<a class="anchor-link" href="#Imports">&#182;</a></h3>
+<h3 id="Imports">Imports<a class="anchor-link" href="#Imports">&#194;&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -87,7 +85,7 @@
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">autograd.numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">autograd.numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">tensorly</span>
 <span class="kn">from</span> <span class="nn">tensorly.decomposition</span> <span class="kn">import</span> <span class="n">parafac</span>
 <span class="kn">from</span> <span class="nn">autograd</span> <span class="kn">import</span> <span class="n">multigrad</span>
@@ -98,12 +96,11 @@
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Creating-a-tensor-of-size-2,-3,-4">Creating a tensor of size 2, 3, 4<a class="anchor-link" href="#Creating-a-tensor-of-size-2,-3,-4">&#182;</a></h3>
+<h3 id="Creating-a-tensor-of-size-2,-3,-4">Creating a tensor of size 2, 3, 4<a class="anchor-link" href="#Creating-a-tensor-of-size-2,-3,-4">&#194;&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -112,7 +109,7 @@
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -125,7 +122,7 @@
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">t</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">t</span>
 </pre></div>
 
 </div>
@@ -136,7 +133,11 @@
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[3]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -155,12 +156,11 @@
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Using-Tensorly-to-break-it-into-rank-2-matrices">Using Tensorly to break it into rank 2 matrices<a class="anchor-link" href="#Using-Tensorly-to-break-it-into-rank-2-matrices">&#182;</a></h3>
+<h3 id="Using-Tensorly-to-break-it-into-rank-2-matrices">Using Tensorly to break it into rank 2 matrices<a class="anchor-link" href="#Using-Tensorly-to-break-it-into-rank-2-matrices">&#194;&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -169,7 +169,7 @@
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">parafac</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">parafac</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -182,7 +182,7 @@
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">A</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">A</span>
 </pre></div>
 
 </div>
@@ -193,7 +193,11 @@
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[5]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -212,7 +216,7 @@
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">B</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">B</span>
 </pre></div>
 
 </div>
@@ -223,7 +227,11 @@
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[6]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -243,7 +251,7 @@
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">C</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">C</span>
 </pre></div>
 
 </div>
@@ -254,7 +262,11 @@
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[7]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -270,12 +282,11 @@
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Defining-Khatri-product-to-get-a-tensor-from-the-matrices">Defining Khatri product to get a tensor from the matrices<a class="anchor-link" href="#Defining-Khatri-product-to-get-a-tensor-from-the-matrices">&#182;</a></h3>
+<h3 id="Defining-Khatri-product-to-get-a-tensor-from-the-matrices">Defining Khatri product to get a tensor from the matrices<a class="anchor-link" href="#Defining-Khatri-product-to-get-a-tensor-from-the-matrices">&#194;&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -284,7 +295,7 @@
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">khatri</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">khatri</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">&#39;il,jl,kl-&gt;ijk&#39;</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">)</span>
 </pre></div>
 
@@ -298,7 +309,7 @@
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">khatri</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">khatri</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -309,7 +320,11 @@
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[9]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -328,12 +343,11 @@
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Rounding-off">Rounding off<a class="anchor-link" href="#Rounding-off">&#182;</a></h3>
+<h3 id="Rounding-off">Rounding off<a class="anchor-link" href="#Rounding-off">&#194;&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -342,7 +356,7 @@
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">khatri</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">))</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">khatri</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -353,7 +367,11 @@
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[10]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -372,8 +390,7 @@
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -382,12 +399,11 @@
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Cost-function-for-GD-based-optimisation">Cost function for GD based optimisation<a class="anchor-link" href="#Cost-function-for-GD-based-optimisation">&#182;</a></h3>
+<h3 id="Cost-function-for-GD-based-optimisation">Cost function for GD based optimisation<a class="anchor-link" href="#Cost-function-for-GD-based-optimisation">&#194;&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -396,7 +412,7 @@
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">cost</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">cost</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
     <span class="n">pred</span> <span class="o">=</span> <span class="n">khatri</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
     <span class="n">gt</span> <span class="o">=</span> <span class="n">t</span>
     <span class="n">mask</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
@@ -409,12 +425,11 @@
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Main-autograd-routine">Main autograd routine<a class="anchor-link" href="#Main-autograd-routine">&#182;</a></h3>
+<h3 id="Main-autograd-routine">Main autograd routine<a class="anchor-link" href="#Main-autograd-routine">&#194;&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -423,7 +438,7 @@
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">mg</span> <span class="o">=</span> <span class="n">multigrad</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="n">argnums</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">mg</span> <span class="o">=</span> <span class="n">multigrad</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="n">argnums</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="n">rank</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">lr</span> <span class="o">=</span> <span class="mf">0.01</span>
 </pre></div>
@@ -438,7 +453,7 @@
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">shape</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
@@ -449,9 +464,8 @@
     <span class="n">a</span><span class="o">-=</span><span class="n">lr</span><span class="o">*</span><span class="n">del_a</span>
     <span class="n">b</span><span class="o">-=</span><span class="n">lr</span><span class="o">*</span><span class="n">del_b</span>
     <span class="n">c</span><span class="o">-=</span><span class="n">lr</span><span class="o">*</span><span class="n">del_c</span>
-    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">500</span>==0:
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">500</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">cost</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
-    
 </pre></div>
 
 </div>
@@ -462,7 +476,11 @@
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>13.0867070223
 1.54275312814
@@ -489,7 +507,7 @@
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">khatri</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">khatri</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -500,7 +518,11 @@
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[14]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -519,12 +541,11 @@
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Decomposing-with-missing-entries">Decomposing with missing entries<a class="anchor-link" href="#Decomposing-with-missing-entries">&#182;</a></h3>
+<h3 id="Decomposing-with-missing-entries">Decomposing with missing entries<a class="anchor-link" href="#Decomposing-with-missing-entries">&#194;&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -533,7 +554,7 @@
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NAN</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NAN</span>
 <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NAN</span>
 <span class="n">t</span>
 </pre></div>
@@ -546,7 +567,11 @@
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[15]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -570,7 +595,7 @@
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">rank</span> <span class="o">=</span> <span class="mi">2</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">rank</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">lr</span> <span class="o">=</span> <span class="mf">0.01</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -584,7 +609,7 @@
     <span class="n">a</span><span class="o">-=</span><span class="n">lr</span><span class="o">*</span><span class="n">del_a</span>
     <span class="n">b</span><span class="o">-=</span><span class="n">lr</span><span class="o">*</span><span class="n">del_b</span>
     <span class="n">c</span><span class="o">-=</span><span class="n">lr</span><span class="o">*</span><span class="n">del_c</span>
-    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">500</span>==0:
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">500</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">cost</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
 </pre></div>
 
@@ -596,7 +621,11 @@
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>14.3657653138
 11.2554542723
@@ -623,7 +652,7 @@
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">khatri</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">khatri</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -634,7 +663,11 @@
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[17]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[17]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -653,12 +686,11 @@
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="What-if-we-used-a-different-seed?">What if we used a different seed?<a class="anchor-link" href="#What-if-we-used-a-different-seed?">&#182;</a></h3>
+<h3 id="What-if-we-used-a-different-seed?">What if we used a different seed?<a class="anchor-link" href="#What-if-we-used-a-different-seed?">&#194;&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -667,7 +699,7 @@
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">o</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">shape</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
@@ -678,7 +710,7 @@
     <span class="n">a</span><span class="o">-=</span><span class="n">lr</span><span class="o">*</span><span class="n">del_a</span>
     <span class="n">b</span><span class="o">-=</span><span class="n">lr</span><span class="o">*</span><span class="n">del_b</span>
     <span class="n">c</span><span class="o">-=</span><span class="n">lr</span><span class="o">*</span><span class="n">del_c</span>
-    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">500</span>==0:
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">500</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">cost</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
 </pre></div>
 
@@ -690,7 +722,11 @@
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>13.1375238648
 1.42377956103
@@ -717,7 +753,7 @@
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">khatri</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">khatri</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -728,7 +764,11 @@
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[19]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -747,8 +787,7 @@
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -756,16 +795,20 @@
 
 </div>
 </div>
-</div></div><script>
+</div>
+ 
+
+</div><script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-96903131-1', 'auto');
+  ga('create', 'UA-100879243-1', 'auto');
   ga('send', 'pageview');
 
 </script>
+
 <div class="container">
 <div id="share" class="navbar-static-bottom"></div>
 
@@ -791,7 +834,7 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
 */
 (function() { // DON'T EDIT BELOW THIS LINE
 var d = document, s = d.createElement('script');
-s.src = 'https://nipunbatra-1.disqus.com/embed.js';
+s.src = 'https://tgjeon.disqus.com/embed.js';
 s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
