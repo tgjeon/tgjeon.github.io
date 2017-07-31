@@ -103,7 +103,13 @@ Regression모델을 살펴보고, 어떤 데이터에 적합한 모델인지 알
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="4.-&#47784;&#45944;-&#51221;&#51032;:-Linear-Regression">4. &#47784;&#45944; &#51221;&#51032;: Linear Regression<a class="anchor-link" href="#4.-&#47784;&#45944;-&#51221;&#51032;:-Linear-Regression">&#194;&#182;</a></h2><h3 id="Linear-Regression-model">Linear Regression model<a class="anchor-link" href="#Linear-Regression-model">&#194;&#182;</a></h3><p>이제 만들어진 데이터셋에 대해 선형 상관 관계를 모델링하기 위해 선형 회귀 모델 (linear regression model)을 아래와 같이 정의해보자. 
+<h2 id="4.-&#47784;&#45944;-&#51221;&#51032;:-Linear-Regression">4. &#47784;&#45944; &#51221;&#51032;: Linear Regression<a class="anchor-link" href="#4.-&#47784;&#45944;-&#51221;&#51032;:-Linear-Regression">&#194;&#182;</a></h2><p>모델을 만들기 위해서는 앞으로 아래와 같이 3단계로 나눠서 진행한다.</p>
+<ol>
+<li><strong>모델</strong>에 대한 이론적인 이해</li>
+<li><strong>모델</strong>을 <strong>그래프</strong>로 표현하기</li>
+<li>표현된 <strong>그래프</strong>를 <strong>TensorFlow</strong>로 작성하기</li>
+</ol>
+<h3 id="4.1.-Linear-Regression-model">4.1. Linear Regression model<a class="anchor-link" href="#4.1.-Linear-Regression-model">&#194;&#182;</a></h3><p>이제 만들어진 데이터셋에 대해 선형 상관 관계를 모델링하기 위해 선형 회귀 모델 (linear regression model)을 아래와 같이 정의해보자. 
 일반화된 종속 변수 $y_i$와 $p$개의 독립변수 $x_{ip}$에 대한 선형 회귀 모델은 아래와 다음과 같다.</p>
 <p>$y_i = w_{1}x_{i1} + w_{2}x_{i2} + \cdots  + w_{p}x_{i1} + b_{i} = x^{T}_{i}w + b, i=1,\cdots ,n$</p>
 <p>$b$는 관측되지 않은 확률 변수이다. 여기선 독립 변수 $x_1$에 대해서만 고려하므로, 모델은 아래와 같이 단순해진다.</p>
@@ -118,7 +124,7 @@ Regression모델을 살펴보고, 어떤 데이터에 적합한 모델인지 알
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Graph-representation-(linear-regression-model)">Graph representation (linear regression model)<a class="anchor-link" href="#Graph-representation-(linear-regression-model)">&#194;&#182;</a></h3><p>앞서 세운 가설(hypothesis)을 그래프로 표현해보면 아래와 같이 나타낼 수 있다.</p>
+<h3 id="4.2.-Graph-representation-(linear-regression-model)">4.2. Graph representation (linear regression model)<a class="anchor-link" href="#4.2.-Graph-representation-(linear-regression-model)">&#194;&#182;</a></h3><p>앞서 세운 가설(hypothesis)을 그래프로 표현해보면 아래와 같이 나타낼 수 있다.</p>
 <ul>
 <li><span style="background-color:#99ffff">데이터셋</span>: <strong>x1, y</strong></li>
 <li><span style="background-color:#ccffcc">모델(변수)</span>: <strong>w, b, hypothesis</strong></li>
@@ -636,7 +642,7 @@ QIf/A4hV8HJKb/ehAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Tensorflow-Implementation-(linear-regression-model)">Tensorflow Implementation (linear regression model)<a class="anchor-link" href="#Tensorflow-Implementation-(linear-regression-model)">&#194;&#182;</a></h3><div class="highlight"><pre><span></span><span class="c1"># 데이터셋 (tf.placeholder를 이용해 type만 지정해주고, 값은 계속 바뀔수 있도록 한다.)</span>
+<h3 id="4.3.-Tensorflow-Implementation-(linear-regression-model)">4.3. Tensorflow Implementation (linear regression model)<a class="anchor-link" href="#4.3.-Tensorflow-Implementation-(linear-regression-model)">&#194;&#182;</a></h3><div class="highlight"><pre><span></span><span class="c1"># 데이터셋 (tf.placeholder를 이용해 type만 지정해주고, 값은 계속 바뀔수 있도록 한다.)</span>
 <span class="n">x1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;x1&#39;</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
 
@@ -648,12 +654,13 @@ QIf/A4hV8HJKb/ehAAAAAElFTkSuQmCC
 <span class="c1"># w 와 x 가 행렬이 아니므로 tf.matmul 이 아니라 기본 곱셈 기호를 사용했습니다. (by golbin)</span>
 <span class="n">hypothesis</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">b</span>
 </pre></div>
-<p><strong>Q) tf.Graph라는 것이 있는데 여기서는 한번도 나온적이 없다. 그래프를 제대로 만든것일까?</strong></p>
+<blockquote><p><strong>Q) tf.Graph라는 것이 있는데 여기서는 한번도 나온적이 없다. 그래프를 제대로 만든것일까?</strong></p>
 <p>A) 그래프를 전혀 정의하지 않아도, 사용된 모든 변수들은 default_graph에 정의된다.</p>
 <p><strong>Q) 모델에 사용되는 Variable을 만들면서 초기화를 수행했다. 초기화 방법에서 사용된 인자들의 의미와 사용시 유의해야 할 점은 무엇일까?</strong></p>
 <p>A) shape과 초기화범위</p>
 <p><strong>Q) 위에서 hypothesis는 그냥 선언에서 쓰고 있다. 뭘로 만들어진걸까? 어떻게 확인할 수 있을까?</strong></p>
 <p>A) 자동으로 tf.Variable로 만들어지고 name은 자동생성된다. print(hypotesis)를 통해 type 확인.</p>
+</blockquote>
 
 </div>
 </div>
@@ -662,7 +669,7 @@ QIf/A4hV8HJKb/ehAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Objective-function-and-optimizer">Objective function and optimizer<a class="anchor-link" href="#Objective-function-and-optimizer">&#194;&#182;</a></h3><p>그리고 가설이 실제 데이터와 얼마나 유사한지를 평가해야 한다. 그것을 손실 함수 (loss function 혹은 objective function)으로 정의한다.</p>
+<h3 id="4.4.-Objective-function-and-optimizer">4.4. Objective function and optimizer<a class="anchor-link" href="#4.4.-Objective-function-and-optimizer">&#194;&#182;</a></h3><p>그리고 가설이 실제 데이터와 얼마나 유사한지를 평가해야 한다. 그것을 손실 함수 (loss function 혹은 objective function)으로 정의한다.</p>
 <ul>
 <li>관측된 $n$개의 데이터 샘플인 $x_{i1}, y_i$이 있다.</li>
 <li>이를 위해 $w, b$로 표현되는 선형 회귀 모델이 위와 같이 정의하였다.</li>
@@ -674,12 +681,13 @@ QIf/A4hV8HJKb/ehAAAAAElFTkSuQmCC
 </ul>
 <p>결국 손실함수 $J(w,b)$를 최소화 시키는 $w$와 $b$를 찾는것이 데이터셋에서 가장 상관관계가 높은 선형 회귀 모델을 찾는 것이 되겠다.</p>
 <p>손실 함수 $J(w,b)$를 <code>cost</code>로 정의하고, 손실함수를 최적화시키는 <code>optimizer</code>를 그래프에 추가해서 표현해보도록 하자.</p>
-<p><strong>Q) MSE 외의 손실함수에 대해 종류를 알아보고 수식으로 표현해보자. L1, L2 norm에 대해서 알아보자.</strong></p>
+<blockquote><p><strong>Q) MSE 외의 손실함수에 대해 종류를 알아보고 수식으로 표현해보자. L1, L2 norm에 대해서 알아보자.</strong></p>
 <p>A) 무수히 많음. Appendix에 따로 cost function을 종류별로 정리 (TODO)</p>
 <p><strong>Q) Optimizer는 따로 공부하기에 너무 많으니까 나중에 따로 설명하기로 하자. 일단 여기서 사용된 learning rate가 무엇을 의미하는지 알아보자.</strong></p>
 <p>A) general optimizer에서 lr_rate 설명 (TODO)</p>
 <p><strong>Q) 손실함수를 통해 계산된 오차가 모델에 반영되는 과정은 어떻게 수행되는가?</strong></p>
 <p>A) Automatic differentiation 설명</p>
+</blockquote>
 
 </div>
 </div>
@@ -688,7 +696,7 @@ QIf/A4hV8HJKb/ehAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Graph-Representation-(Objective-function-and-optimizer)">Graph Representation (Objective function and optimizer)<a class="anchor-link" href="#Graph-Representation-(Objective-function-and-optimizer)">&#194;&#182;</a></h3><p>앞서 작성한 그래프에서 손실함수와 최적화 연산을 추가해보자.</p>
+<h3 id="4.5.-Graph-Representation-(Objective-function-and-optimizer)">4.5. Graph Representation (Objective function and optimizer)<a class="anchor-link" href="#4.5.-Graph-Representation-(Objective-function-and-optimizer)">&#194;&#182;</a></h3><p>앞서 작성한 그래프에서 손실함수와 최적화 연산을 추가해보자.</p>
 <ul>
 <li><span style="background-color:#99ffff">데이터셋</span>: x1, y</li>
 <li><span style="background-color:#ccffcc">모델(변수)</span>: w, b, hypothesis, <strong>cost, train_op</strong></li>
@@ -3449,7 +3457,7 @@ QmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Tensorflow-Implementation-(Objective-function-and-optimizer)">Tensorflow Implementation (Objective function and optimizer)<a class="anchor-link" href="#Tensorflow-Implementation-(Objective-function-and-optimizer)">&#194;&#182;</a></h3><div class="highlight"><pre><span></span><span class="c1"># 손실 함수를 작성합니다.</span>
+<h3 id="4.6.-Tensorflow-Implementation-(Objective-function-and-optimizer)">4.6. Tensorflow Implementation (Objective function and optimizer)<a class="anchor-link" href="#4.6.-Tensorflow-Implementation-(Objective-function-and-optimizer)">&#194;&#182;</a></h3><div class="highlight"><pre><span></span><span class="c1"># 손실 함수를 작성합니다.</span>
 <span class="c1"># mean((h - Y)^2) : 예측값과 실제값의 거리를 비용(손실) 함수로 정합니다.</span>
 <span class="n">cost</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">hypothesis</span> <span class="o">-</span> <span class="n">Y</span><span class="p">))</span>
 
@@ -3467,7 +3475,7 @@ QmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="5.-&#49892;&#54744;-&#49688;&#54665;">5. &#49892;&#54744; &#49688;&#54665;<a class="anchor-link" href="#5.-&#49892;&#54744;-&#49688;&#54665;">&#194;&#182;</a></h2><h3 id="Experiment-for-machine-learning">Experiment for machine learning<a class="anchor-link" href="#Experiment-for-machine-learning">&#194;&#182;</a></h3><p>데이터셋도 만들고, 모델도 만들어봤습니다. 이제 남은것은 바로 실험입니다. 실험의 주된 과정은 아래와 같습니다.</p>
+<h2 id="5.-&#49892;&#54744;-&#49688;&#54665;">5. &#49892;&#54744; &#49688;&#54665;<a class="anchor-link" href="#5.-&#49892;&#54744;-&#49688;&#54665;">&#194;&#182;</a></h2><h3 id="5.1.-Experiment-for-machine-learning">5.1. Experiment for machine learning<a class="anchor-link" href="#5.1.-Experiment-for-machine-learning">&#194;&#182;</a></h3><p>데이터셋도 만들고, 모델도 만들어봤습니다. 이제 남은것은 바로 실험입니다. 실험의 주된 과정은 아래와 같습니다.</p>
 <ol>
 <li>구성된 모델에 데이터 셋의 샘플을 하나씩 넣어본다. $(x_{i1}, y_i)$를 모델 그래프에 투입!</li>
 <li>그래프에 표현된 모델을 통해 예측을 하고, 예측 결과 $\hat{y_i}$와 종속변수 $y_i$와 비교해본다. </li>
@@ -3484,7 +3492,7 @@ QmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Tensorflow-Implementation-(Experiement-for-machine-learning)">Tensorflow Implementation (Experiement for machine learning)<a class="anchor-link" href="#Tensorflow-Implementation-(Experiement-for-machine-learning)">&#194;&#182;</a></h3><p>위애서 설명한 실험 과정을 Tensorflow에서는 session을 만들어서 그래프와 데이터를 집어넣고 실행 시키는 과정을 통해 수행됩니다. 과정은 아래와 같습니다.</p>
+<h3 id="5.2.-Tensorflow-Implementation-(Experiement-for-machine-learning)">5.2. Tensorflow Implementation (Experiement for machine learning)<a class="anchor-link" href="#5.2.-Tensorflow-Implementation-(Experiement-for-machine-learning)">&#194;&#182;</a></h3><p>위애서 설명한 실험 과정을 Tensorflow에서는 session을 만들어서 그래프와 데이터를 집어넣고 실행 시키는 과정을 통해 수행됩니다. 과정은 아래와 같습니다.</p>
 <ol>
 <li>Session 생성</li>
 <li>Session에서 사용할 그래프 설정 및 초기화</li>
@@ -3523,10 +3531,9 @@ QmCC
 </ul>
 <p><strong>4. Session 종료</strong></p>
 <p>: sess.Close()를 통해 할당된 GPU 혹은 CPU 연산 자원 반환 및 session 종료.</p>
-<p><strong>Q) session 선언의 방법과 차이점은? 어떤게 효율적일까? 더 좋은 방법은 없을까?</strong></p>
+<blockquote><p><strong>Q) session 선언의 방법과 차이점은? 어떤게 효율적일까? 더 좋은 방법은 없을까?</strong></p>
 <div class="highlight"><pre><span></span><span class="c1"># case 1</span>
 <span class="n">sess</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
-
 <span class="c1"># case 2</span>
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
 </pre></div>
@@ -3536,6 +3543,7 @@ case 2와 같은 방법은 with를 이용해서 scope를 조절하기 때문에 
 <p><strong>Q) 그래프에서 선언된 값을 Session 실행 도중에 확인해보려면?</strong></p>
 <p>A) print()를 통해 확인 가능하다. 변수를 그냥 출력하면 해당 tensor의 형태만 나온다. 내용을 보기 위해서는 sess.run을 통해 세션을 실행시키면서 확인해볼 변수명을 넣어준다. 다만 주의할 점은, 그냥 변수명만 넣어서 sess.run()을 해야한다. 만약 데이터셋을 전달해주는 동작을 추가한다면 데이터셋을 보고 모델이 업데이트되버린다. (주의할것)</p>
 <p><strong>Q) tf.Graph를 session안에서 만들면 어떻게 될까?</strong></p>
+</blockquote>
 
 </div>
 </div>
@@ -3544,7 +3552,7 @@ case 2와 같은 방법은 with를 이용해서 scope를 조절하기 때문에 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Example-code">Example code<a class="anchor-link" href="#Example-code">&#194;&#182;</a></h2><div class="highlight"><pre><span></span><span class="c1"># Source code is based on golbin&#39;s tutorial repo.</span>
+<h2 id="5.3.-Example-code">5.3. Example code<a class="anchor-link" href="#5.3.-Example-code">&#194;&#182;</a></h2><div class="highlight"><pre><span></span><span class="c1"># Source code is based on golbin&#39;s tutorial repo.</span>
 <span class="c1"># Link: https://github.com/golbin/TensorFlow-Tutorials/blob/master/01%20-%20TensorFlow%20Basic/03%20-%20Linear%20Regression.py</span>
 
 <span class="c1"># X 와 Y 의 상관관계를 분석하는 기초적인 선형 회귀 모델을 만들고 실행해봅니다.</span>
